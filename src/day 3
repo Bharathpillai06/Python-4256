@@ -1,0 +1,126 @@
+# Names: Jack Olson and Bharath Pillai
+
+# Q1
+def grades(di):
+  result = {}
+
+  for name, grades in di.items():
+    if grades >= 90:
+      result[name] = 'A'
+    elif grades >= 80:
+      result[name] = 'B'
+    elif grades >= 70:
+      result[name] = 'C'
+    elif grades >= 60:
+      result[name] = 'D'
+    else:
+      result[name] = 'F'
+  return result
+
+# Q2
+def letter_grades(di):
+  result = {"A":0,"B":0,"C":0,"D":0,"E":0}
+
+  for name, grades in di.items():
+    if grades >= 90:
+      result["A"] += 1
+    elif grades >= 80:
+      result["B"] += 1
+    elif grades >= 70:
+      result["C"] += 1
+    elif grades >= 60:
+      result["D"] += 1
+    else:
+      result["E"] += 1
+  return result
+
+# Q3
+def letter_grades_2(di):
+  result = {"A":set(),"B":set(),"C":set(),"D":set(),"E":set()}
+
+  for name, grades in di.items():
+    if grades >= 90:
+      result["A"].add(name)
+    elif grades >= 80:
+      result["B"].add(name)
+    elif grades >= 70:
+      result["C"].add(name)
+    elif grades >= 60:
+      result["D"].add(name)
+    else:
+      result["E"].add(name)
+  return result
+
+# Q4
+def highest_scores(di):
+    result = []
+    max = 0
+    for name, grades in di.items():
+        for grade in grades:
+            if grade >= max:
+                max = grade
+    for name, grades in di.items():
+        for grade in grades:
+            if grade == max:
+                result.append(name)
+    return result
+
+# Q5
+def course_average(di):
+    result = {}
+    for name, grades in di.items():
+      result[name] = round(grades[0] * 0.3 + grades[1] * 0.3 + grades[2] * 0.4)
+    return result
+
+# Q6
+def list_to_dict(li):
+  result = {}
+  for value in li:
+    if value in result:
+      result[value] += 1
+    else:
+      result[value] = 1
+  return result
+
+# Q7
+def dict_to_list(dt):
+  result = []
+  for s, amount in dt.items():
+    for i in range(amount):
+          result.append(s)
+  return result
+
+# Q8
+def most_cats(di):
+  result = []
+  max = 0
+  for name, di2 in di.items():
+        for animals, amount in di2.items():
+            if animals == "Cats":
+              if max < amount:
+                max = amount
+                result.clear()
+                result.append(name)
+              elif max == amount:
+                result.append(name)
+  return result
+
+# Q9
+def oldest_cat(di):
+  oldest = ""
+  max = 0
+  for name, di2 in di.items():
+        for name, age in di2.items():
+              if age > max:
+                max = age
+                oldest = name
+  return oldest
+
+# Q10
+def owners_senior_cats(di):
+  senior = []
+  for owner, di2 in di.items():
+        for name, age in di2.items():
+              if age >= 7:
+                senior.append(owner)
+  return senior
